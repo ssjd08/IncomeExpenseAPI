@@ -13,15 +13,15 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError("users should have a Email")
         
-        user = self.model(username=username, email=self.normalize_email(email))
+        user = self.model(username=username, email=self.normalize_email(email)) #? self.model and self.normalize_email
         user.set_password(password)
         user.save()
         return user
         
-    def create_user(self , username, email, password=None):
+    def create_superuser(self , username, email, password=None):
         
         if password is None:
-            raise TypeError("users should have a password")
+            raise TypeError("password is required")
         
         user = self.create_user(username, email, password)
         user.is_superuser = True
@@ -46,7 +46,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def __str__(self):
         return self.email
-    
     
     def tokens(self):
         return ""
