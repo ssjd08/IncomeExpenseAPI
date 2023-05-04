@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,8 +84,11 @@ DATABASES = {
 }
 
 
-REST_FRAMEWORL = {
-    'NON_FIELD_ERRORS_KEY': 'Error'
+REST_FRAMEWORK = {
+    'NON_FIELD_ERRORS_KEY': 'Error',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,3 +130,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_USE_TLS = True #?
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER') #os.environ.get('EMAIL_HOST') gets Email_Host field from .env file in root directory.
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') # .env file is an .gitignore file.
+
