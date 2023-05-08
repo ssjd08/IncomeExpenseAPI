@@ -32,9 +32,10 @@ class RegisterView(generics.GenericAPIView):
         data = {
             'email_body':email_body,
             'email_subject': 'Verify your email',
+            'to_email': user.email
         } 
         Util.send_email(data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(user_data, status=status.HTTP_201_CREATED)
 
 
 class VerifyEmail(views.APIView):
@@ -60,7 +61,8 @@ class VerifyEmail(views.APIView):
             return Response({'error':'invalid token'}, status=status.HTTP_400_BAD_REQUEST)
         
 class LoginAPIView(generics.GenericAPIView):
-    serializerer_class = LoginSerializer
+    serializer_class = LoginSerializer
+
     
     def post(self, request):
         serializer = self.serializer_class(data=request.data)

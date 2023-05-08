@@ -135,6 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_USE_TLS = True #?
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER') #os.environ.get('EMAIL_HOST') gets Email_Host field from .env file in root directory.
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') # .env file is an .gitignore file.
+EMAIL_HOST_USER = 'sajadporkhande08@gmail.com' #os.environ.get('EMAIL_HOST') gets Email_Host field from .env file in root directory.
+EMAIL_HOST_PASSWORD = 'kxqzrhkfaskljqkx' # .env file is an .gitignore file.
 
