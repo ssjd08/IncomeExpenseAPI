@@ -88,8 +88,7 @@ DATABASES = {
 REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'Error',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+        'rest_framework_simplejwt.authentication.JWTAuthentication',    )
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
