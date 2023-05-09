@@ -60,7 +60,7 @@ class LoginSerializer(serializers.ModelSerializer):
         if not user.is_active:
             raise AuthenticationFailed("Account is not active. contact administrator.")
 
-        if not user.is_verfied:
+        if not user.is_verified:
             raise AuthenticationFailed("Email is not verified.")
 
         return {
