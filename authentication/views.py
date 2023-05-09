@@ -51,8 +51,8 @@ class VerifyEmail(views.APIView):
         try:
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
             user = User.objects.get(id=payload['user_id'])
-            if not user.is_verfied:
-                user.is_verfied = True
+            if not user.is_verified:
+                user.is_verified = True
                 user.save()
 
             return Response({'email': 'Successfully activated.'}, status=status.HTTP_200_OK)
