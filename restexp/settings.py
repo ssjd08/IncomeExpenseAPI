@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'expenses.apps.ExpensesConfig',
     'income.apps.IncomeConfig',
+    'corsheaders', #????
 ]
 
 SWAGGER_SETTINGS = {
@@ -62,6 +63,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'restexp.urls'
@@ -151,3 +154,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sajadporkhande08@gmail.com' #os.environ.get('EMAIL_HOST') gets Email_Host field from .env file in root directory.
 EMAIL_HOST_PASSWORD = 'kxqzrhkfaskljqkx' # .env file is an .gitignore file.
 
+CORS_ORIGIN_ALLOW_ALL = True 
