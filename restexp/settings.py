@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'expenses.apps.ExpensesConfig',
     'income.apps.IncomeConfig',
     'corsheaders', #????
+    'userstats.apps.UserstatsConfig',
 ]
 
 SWAGGER_SETTINGS = {
